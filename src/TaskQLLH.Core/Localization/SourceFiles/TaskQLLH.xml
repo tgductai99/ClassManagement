@@ -120,5 +120,25 @@
     <text name="403PageHeader">Forbidden</text>
     <text name="403PageDescription">You don't have permission to access this resource. Please contact your administrator.</text>
     <text name="403PageButton">Go back to Dashboard</text>
+    <text name="ClassRooms" value="Class management" />
+    <text name="ClassRoom" value="Class" />
+    <text name="CreateNewClassRoom" value="Create new class" />
+    <text name="CreatingClassRoom" value="Creating class" />
+    <text name="EditingClassRoom" value="Editing class" />
+    <text name="DeletingClassRoom" value="Deleting class" />
+    <text name="ClassRoomName" value="Class name" />
+    <text name="ClassRoomCode" value="Class code" />
+    <text name="AcademicYear" value="Academic year" />
+    <text name="Semester" value="Semester" />
+    <text name="Semester1" value="Semester 1" />
+    <text name="Semester2" value="Semester 2" />
+    <text name="MaxStudents" value="Max students" />
+    <text name="CurrentStudents" value="Current students" />
+    <text name="ClassRoomStatus" value="Status" />
+    <text name="ClassRoomDeleteWarningMessage" value="Class {0} will be deleted." />
+    <text name="ClassRoomActive" value="Active" />
+    <text name="ClassRoomInactive" value="Inactive" />
+    <text name="ClassRoomCompleted" value="Completed" />
+    <text name="ClassRoomCancelled" value="Cancelled" />
   </texts>
 </localizationDictionary>

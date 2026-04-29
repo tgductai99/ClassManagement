@@ -12,6 +12,17 @@ namespace TaskQLLH.Authorization
             context.CreatePermission(PermissionNames.Pages_Users_Activation, L("UsersActivation"));
             context.CreatePermission(PermissionNames.Pages_Roles, L("Roles"));
             context.CreatePermission(PermissionNames.Pages_Tenants, L("Tenants"), multiTenancySides: MultiTenancySides.Host);
+            
+            var classRooms = context.CreatePermission(
+                PermissionNames.Pages_ClassRooms, 
+                L("ClassRooms")
+            );
+            classRooms.CreateChildPermission(
+                PermissionNames.Pages_ClassRooms_Create, L("CreatingClassRoom"));
+            classRooms.CreateChildPermission(
+                PermissionNames.Pages_ClassRooms_Edit, L("EditingClassRoom"));
+            classRooms.CreateChildPermission(
+                PermissionNames.Pages_ClassRooms_Delete, L("DeletingClassRoom"));
         }
 
         private static ILocalizableString L(string name)
