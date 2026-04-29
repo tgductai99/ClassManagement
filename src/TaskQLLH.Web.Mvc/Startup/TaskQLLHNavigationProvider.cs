@@ -53,6 +53,14 @@ namespace TaskQLLH.Web.Startup
                         icon: "fas fa-theater-masks",
                         permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Roles)
                     )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        PageNames.ClassRooms,
+                        L("ClassRooms"),
+                        url: "ClassRoom",
+                        icon: "fa fa-chalkboard",
+                        permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_ClassRooms)
+                    )
                 )
                 .AddItem( // Menu items below is just for demonstration!
                     new MenuItemDefinition(

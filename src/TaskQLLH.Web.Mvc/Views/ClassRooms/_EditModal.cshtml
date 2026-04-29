@@ -1,0 +1,80 @@
+@using TaskQLLH.ClassRooms.Dto
+@using TaskQLLH.ClassRooms
+@using TaskQLLH.Web.Models.Common.Modals
+@model ClassRoomDto
+
+@{
+Layout = null;
+}
+
+@await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml",
+new ModalHeaderViewModel(L("EditingClassRoom")))
+
+<form name="ClassRoomEditForm" role="form" class="form-horizontal">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <div class="modal-body">
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label">@L("ClassRoomName")</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" name="Name"
+                       value="@Model.Name" required maxlength="100" />
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label">@L("ClassRoomCode")</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" name="Code"
+                       value="@Model.Code" required maxlength="20" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label">@L("Description")</label>
+            <div class="col-md-9">
+                <textarea class="form-control" name="Description"
+                          rows="2" maxlength="500">@Model.Description</textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label">@L("AcademicYear")</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" name="AcademicYear"
+                       value="@Model.AcademicYear" maxlength="20" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label">@L("Semester")</label>
+            <div class="col-md-9">
+                <select class="form-control" name="Semester">
+                    <option value="1" @(Model.Semester == 1 ? "selected" : "")>@L("Semester1")</option>
+                    <option value="2" @(Model.Semester == 2 ? "selected" : "")>@L("Semester2")</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label">@L("MaxStudents")</label>
+            <div class="col-md-9">
+                <input type="number" class="form-control" name="MaxStudents"
+                       value="@Model.MaxStudents" min="1" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label">@L("ClassRoomStatus")</label>
+            <div class="col-md-9">
+                <select class="form-control" name="Status">
+                    <option value="1" @(Model.Status == ClassRoomStatus.Active ? "selected" : "")>@L("ClassRoomActive")</option>
+                    <option value="2" @(Model.Status == ClassRoomStatus.Inactive ? "selected" : "")>@L("ClassRoomInactive")</option>
+                    <option value="3" @(Model.Status == ClassRoomStatus.Completed ? "selected" : "")>@L("ClassRoomCompleted")</option>
+                    <option value="4" @(Model.Status == ClassRoomStatus.Cancelled ? "selected" : "")>@L("ClassRoomCancelled")</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label">@L("IsActive")</label>
+            <div class="col-md-9">
+                <input type="checkbox" name="IsActive" value="true"
+                       @(Model.IsActive ? "checked" : "") />
+            </div>
+        </div>
+    </div>
+    @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+</form>

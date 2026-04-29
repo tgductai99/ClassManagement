@@ -1,0 +1,98 @@
+@using TaskQLLH.Authorization
+@using TaskQLLH.Web.Startup
+
+@{
+    ViewBag.Title = L("ClassRooms");
+    ViewBag.CurrentPageName = PageNames.ClassRooms;
+}
+
+@section Scripts {
+    <environment names="Development">
+        <script src="~/view-resources/Views/ClassRoom/Index.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/view-resources/Views/ClassRoom/Index.min.js" asp-append-version="true"></script>
+    </environment>
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>@L("ClassRooms")</h1>
+            </div>
+            <div class="col-sm-6">
+                @if (IsGranted(PermissionNames.Pages_ClassRooms_Create))
+                {
+                    <a href="javascript:;" data-toggle="modal" data-target="#CreateClassRoomModal"
+                       class="btn bg-blue float-sm-right">
+                        <i class="fa fa-plus-square"></i> @L("CreateNewClassRoom")
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6">
+                                <!-- Tìm kiếm -->
+                                <div class="input-group">
+                                    <input type="text" id="FilterText" class="form-control"
+                                           placeholder="@L("SearchWithThreeDot")" />
+                                    <select id="StatusFilter" class="form-control ml-2">
+                                        <option value="">@L("All")</option>
+                                        <option value="1">@L("ClassRoomActive")</option>
+                                        <option value="2">@L("ClassRoomInactive")</option>
+                                        <option value="3">@L("ClassRoomCompleted")</option>
+                                        <option value="4">@L("ClassRoomCancelled")</option>
+                                    </select>
+                                    <div class="input-group-append">
+                                        <button id="GetClassRoomsButton" class="btn btn-primary">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="ClassRoomsTable" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>@L("ClassRoomName")</th>
+                                        <th>@L("ClassRoomCode")</th>
+                                        <th>@L("AcademicYear")</th>
+                                        <th>@L("Semester")</th>
+                                        <th>@L("MaxStudents")</th>
+                                        <th>@L("ClassRoomStatus")</th>
+                                        <th style="width: 150px">@L("Actions")</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@await Html.PartialAsync("~/Views/ClassRoom/_CreateModal.cshtml")
+
+<div class="modal fade" id="ClassRoomEditModal" tabindex="-1" role="dialog" 
+     aria-labelledby="ClassRoomEditModalLabel" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
