@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TaskQLLH.EntityFrameworkCore;
 
@@ -11,9 +12,11 @@ using TaskQLLH.EntityFrameworkCore;
 namespace TaskQLLH.Migrations
 {
     [DbContext(typeof(TaskQLLHDbContext))]
-    partial class TaskQLLHDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260429090850_Add_ClassRoom")]
+    partial class Add_ClassRoom
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
