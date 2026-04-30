@@ -2,10 +2,11 @@
 @using TaskQLLH.ClassRooms
 @using TaskQLLH.Web.Models.Common.Modals
 @model ClassRoomDto
-
+@removeTagHelper Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
 Layout = null;
 }
+
 
 @await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml",
 new ModalHeaderViewModel(L("EditingClassRoom")))
@@ -45,8 +46,16 @@ new ModalHeaderViewModel(L("EditingClassRoom")))
             <label class="col-md-3 col-form-label">@L("Semester")</label>
             <div class="col-md-9">
                 <select class="form-control" name="Semester">
-                    <option value="1" @(Model.Semester == 1 ? "selected" : "")>@L("Semester1")</option>
-                    <option value="2" @(Model.Semester == 2 ? "selected" : "")>@L("Semester2")</option>
+                    @if (Model.Semester == 1)
+                    {
+                        <option value="1" selected>@L("Semester1")</option>
+                        <option value="2">@L("Semester2")</option>
+                    }
+                    else
+                    {
+                        <option value="1">@L("Semester1")</option>
+                        <option value="2" selected>@L("Semester2")</option>
+                    }
                 </select>
             </div>
         </div>
@@ -61,10 +70,10 @@ new ModalHeaderViewModel(L("EditingClassRoom")))
             <label class="col-md-3 col-form-label">@L("ClassRoomStatus")</label>
             <div class="col-md-9">
                 <select class="form-control" name="Status">
-                    <option value="1" @(Model.Status == ClassRoomStatus.Active ? "selected" : "")>@L("ClassRoomActive")</option>
-                    <option value="2" @(Model.Status == ClassRoomStatus.Inactive ? "selected" : "")>@L("ClassRoomInactive")</option>
-                    <option value="3" @(Model.Status == ClassRoomStatus.Completed ? "selected" : "")>@L("ClassRoomCompleted")</option>
-                    <option value="4" @(Model.Status == ClassRoomStatus.Cancelled ? "selected" : "")>@L("ClassRoomCancelled")</option>
+                    <option value="1" @(Model.Status == ClassRoomStatus.Active    ? "selected='selected'" : "")>@L("ClassRoomActive")</option>
+                    <option value="2" @(Model.Status == ClassRoomStatus.Inactive  ? "selected='selected'" : "")>@L("ClassRoomInactive")</option>
+                    <option value="3" @(Model.Status == ClassRoomStatus.Completed ? "selected='selected'" : "")>@L("ClassRoomCompleted")</option>
+                    <option value="4" @(Model.Status == ClassRoomStatus.Cancelled ? "selected='selected'" : "")>@L("ClassRoomCancelled")</option>
                 </select>
             </div>
         </div>
@@ -79,4 +88,4 @@ new ModalHeaderViewModel(L("EditingClassRoom")))
     @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
 </form>
 
-<script src="~/view-resources/Views/ClassRoom/_EditModal.js" asp-append-version="true"></script>
+<script src="~/view-resources/Views/ClassRooms/_EditModal.js" asp-append-version="true"></script>

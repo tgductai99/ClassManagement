@@ -57,7 +57,7 @@ namespace TaskQLLH.Web.Startup
                     new MenuItemDefinition(
                         PageNames.ClassRooms,
                         L("ClassRooms"),
-                        url: "ClassRoom",
+                        url: "ClassRooms",
                         icon: "fa fa-chalkboard",
                         permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_ClassRooms)
                     )

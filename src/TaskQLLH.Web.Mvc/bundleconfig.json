@@ -122,6 +122,18 @@
     ]
   },
   {
+    "outputFileName": "wwwroot/view-resources/Views/ClassRooms/Index.min.js",
+    "inputFiles": [
+      "wwwroot/view-resources/Views/ClassRoom/Index.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/view-resources/Views/ClassRoom/_EditModal.min.js",
+    "inputFiles": [
+      "wwwroot/view-resources/Views/ClassRooms/_EditModal.js"
+    ]
+  },
+  {
     "outputFileName": "wwwroot/view-resources/Views/Account/Login.min.js",
     "inputFiles": [
       "wwwroot/view-resources/Views/Account/Login.js"

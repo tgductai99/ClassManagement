@@ -8,10 +8,10 @@
 
 @section Scripts {
     <environment names="Development">
-        <script src="~/view-resources/Views/ClassRoom/Index.js" asp-append-version="true"></script>
+        <script src="~/view-resources/Views/ClassRooms/Index.js" asp-append-version="true"></script>
     </environment>
     <environment names="Staging,Production">
-        <script src="~/view-resources/Views/ClassRoom/Index.min.js" asp-append-version="true"></script>
+        <script src="~/view-resources/Views/ClassRooms/Index.min.js" asp-append-version="true"></script>
     </environment>
 }
 
@@ -87,7 +87,7 @@
     </div>
 </section>
 
-@await Html.PartialAsync("~/Views/ClassRoom/_CreateModal.cshtml")
+@await Html.PartialAsync("~/Views/ClassRooms/_CreateModal.cshtml")
 
 <div class="modal fade" id="ClassRoomEditModal" tabindex="-1" role="dialog" 
      aria-labelledby="ClassRoomEditModalLabel" data-backdrop="static">

@@ -6,7 +6,7 @@ using TaskQLLH.Controllers;
 namespace TaskQLLH.Web.Controllers
 {
     [AbpMvcAuthorize(PermissionNames.Pages_ClassRooms)]
-    public class ClassRoomController : TaskQLLHControllerBase
+    public class ClassRoomsController : TaskQLLHControllerBase
     {
         public ActionResult Index()
         {
