@@ -36,19 +36,10 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label">@L("AcademicYear")</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="AcademicYear" 
-                                   placeholder="2024-2025" maxlength="20" />
+                            <select class="form-control" name="AcademicYear" id="AcademicYear"></select>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-md-3 col-form-label">@L("Semester")</label>
-                        <div class="col-md-9">
-                            <select class="form-control" name="Semester">
-                                <option value="1">@L("Semester1")</option>
-                                <option value="2">@L("Semester2")</option>
-                            </select>
-                        </div>
-                    </div>
+                    
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label">@L("MaxStudents")</label>
                         <div class="col-md-9">
@@ -65,12 +56,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-md-3 col-form-label">@L("IsActive")</label>
-                        <div class="col-md-9">
-                            <input type="checkbox" name="IsActive" value="true" checked />
-                        </div>
-                    </div>
+                    
                 </div>
                 @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
             </form>

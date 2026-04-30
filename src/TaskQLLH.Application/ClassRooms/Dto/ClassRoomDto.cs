@@ -10,8 +10,6 @@ namespace TaskQLLH.ClassRooms.Dto
         public int MaxStudents { get; set; }
         public int CurrentStudents { get; set; }
         public string AcademicYear { get; set; }
-        public int Semester { get; set; }
         public ClassRoomStatus Status { get; set; }
-        public bool IsActive { get; set; }
     }
 }

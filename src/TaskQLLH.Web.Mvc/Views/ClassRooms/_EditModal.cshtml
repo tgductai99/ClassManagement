@@ -9,7 +9,9 @@ Layout = null;
 
 
 @await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml",
-new ModalHeaderViewModel(L("EditingClassRoom")))
+new ModalHeaderViewModel(L("EditingClassRoom")))y
+
+<input type="hidden" id="AcademicYearValue" value="@Model.AcademicYear" />
 
 <form name="ClassRoomEditForm" role="form" class="form-horizontal">
     <input type="hidden" name="Id" value="@Model.Id" />
@@ -38,27 +40,12 @@ new ModalHeaderViewModel(L("EditingClassRoom")))
         <div class="form-group row">
             <label class="col-md-3 col-form-label">@L("AcademicYear")</label>
             <div class="col-md-9">
-                <input type="text" class="form-control" name="AcademicYear"
-                       value="@Model.AcademicYear" maxlength="20" />
+                <!-- Đổi ID thành AcademicYearEdit để không bị trùng với cái ở Index -->
+                <select class="form-control" name="AcademicYear" id="AcademicYearEdit"></select>
             </div>
         </div>
-        <div class="form-group row">
-            <label class="col-md-3 col-form-label">@L("Semester")</label>
-            <div class="col-md-9">
-                <select class="form-control" name="Semester">
-                    @if (Model.Semester == 1)
-                    {
-                        <option value="1" selected>@L("Semester1")</option>
-                        <option value="2">@L("Semester2")</option>
-                    }
-                    else
-                    {
-                        <option value="1">@L("Semester1")</option>
-                        <option value="2" selected>@L("Semester2")</option>
-                    }
-                </select>
-            </div>
-        </div>
+        
+        
         <div class="form-group row">
             <label class="col-md-3 col-form-label">@L("MaxStudents")</label>
             <div class="col-md-9">
@@ -75,13 +62,6 @@ new ModalHeaderViewModel(L("EditingClassRoom")))
                     <option value="3" @(Model.Status == ClassRoomStatus.Completed ? "selected='selected'" : "")>@L("ClassRoomCompleted")</option>
                     <option value="4" @(Model.Status == ClassRoomStatus.Cancelled ? "selected='selected'" : "")>@L("ClassRoomCancelled")</option>
                 </select>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-md-3 col-form-label">@L("IsActive")</label>
-            <div class="col-md-9">
-                <input type="checkbox" name="IsActive" value="true"
-                       @(Model.IsActive ? "checked" : "") />
             </div>
         </div>
     </div>

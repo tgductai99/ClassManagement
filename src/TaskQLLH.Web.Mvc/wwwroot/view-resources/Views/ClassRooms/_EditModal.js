@@ -34,7 +34,46 @@
     });
 
     _$modal.on('shown.bs.modal', function () {
+        // Lấy giá trị từ input hidden mà mình vừa thêm ở Bước 1
+        var currentAcademicYear = $('#AcademicYearValue').val();
+
+        // Truyền giá trị này vào hàm load
+        loadAcademicYears(currentAcademicYear);
+
         _$form.find('input[type=text]:first').focus();
     });
+
+    // =====================
+    // ACADEMIC YEAR
+    // =====================
+    function generateAcademicYears() {
+        let years = [];
+        let current = new Date().getFullYear();
+
+        for (let i = -2; i <= 3; i++) {
+            let start = current + i;
+            let end = start + 1;
+            years.push(`${start}-${end}`);
+        }
+
+        return years;
+    }
+
+    function loadAcademicYears(selectedValue) {
+        // Trỏ đúng vào ID AcademicYearEdit
+        let select = $('#AcademicYearEdit');
+        select.empty();
+
+        let years = generateAcademicYears();
+
+        years.forEach(y => {
+            select.append(`<option value="${y}">${y}</option>`);
+        });
+
+        // ĐẶT GIÁ TRỊ SAU KHI ĐÃ APPEND OPTIONS
+        if (selectedValue) {
+            select.val(selectedValue);
+        }
+    }
 
 })(jQuery);

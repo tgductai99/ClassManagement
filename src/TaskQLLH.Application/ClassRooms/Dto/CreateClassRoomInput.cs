@@ -20,10 +20,6 @@ namespace TaskQLLH.ClassRooms.Dto
         [MaxLength(20)]
         public string AcademicYear { get; set; }
 
-        public int Semester { get; set; }
-
         public ClassRoomStatus Status { get; set; } = ClassRoomStatus.Active;
-
-        public bool IsActive { get; set; } = true;
     }
 }

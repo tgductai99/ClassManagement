@@ -50,17 +50,11 @@
             },
             {
                 targets: 3,
-                data: 'semester',
-                sortable: false,
-                render: data => `${l('Semester')} ${data}`
-            },
-            {
-                targets: 4,
                 data: 'maxStudents',
                 sortable: false
             },
             {
-                targets: 5,
+                targets: 4,
                 data: 'status',
                 sortable: false,
                 render: function (data) {
@@ -75,7 +69,7 @@
                 }
             },
             {
-                targets: 6,
+                targets: 5,
                 data: null,
                 sortable: false,
                 autoWidth: false,
@@ -142,6 +136,7 @@
     });
 
     _$modal.on('shown.bs.modal', () => {
+        loadAcademicYears();
         _$modal.find('input:not([type=hidden]):first').focus();
     }).on('hidden.bs.modal', () => {
         _$form.clearForm();
@@ -155,7 +150,7 @@
 
         e.preventDefault();
         abp.ajax({
-            url: abp.appPath + 'ClassRoom/EditModal?classRoomId=' + classRoomId,
+            url: abp.appPath + 'ClassRooms/EditModal?classRoomId=' + classRoomId,
             type: 'POST',
             dataType: 'html',
             success: function (content) {
@@ -196,5 +191,36 @@
             }
         );
     });
+
+    // =====================
+    // ACADEMIC YEAR DROPDOWN
+    // =====================
+    function generateAcademicYears() {
+        let years = [];
+        let current = new Date().getFullYear();
+
+        for (let i = -2; i <= 3; i++) {
+            let start = current + i;
+            let end = start + 1;
+            years.push(`${start}-${end}`);
+        }
+
+        return years;
+    }
+
+    function loadAcademicYears() {
+        let select = $('#AcademicYear');
+        select.empty();
+
+        let years = generateAcademicYears();
+
+        years.forEach(y => {
+            select.append(`<option value="${y}">${y}</option>`);
+        });
+
+        // auto chọn năm hiện tại
+        let current = new Date().getFullYear();
+        select.val(`${current}-${current + 1}`);
+    }
 
 })(jQuery);

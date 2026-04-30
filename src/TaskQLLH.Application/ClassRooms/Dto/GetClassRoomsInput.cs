@@ -6,6 +6,5 @@ namespace TaskQLLH.ClassRooms.Dto
     {
         public string Filter { get; set; }
         public ClassRoomStatus? Status { get; set; }
-        public bool? IsActive { get; set; }
     }
 }   

@@ -29,9 +29,8 @@ namespace TaskQLLH.ClassRooms
                     !string.IsNullOrWhiteSpace(input.Filter),
                     c => c.Name.Contains(input.Filter) || c.Code.Contains(input.Filter)
                 )
-                .WhereIf(input.Status.HasValue, c => c.Status == input.Status.Value)
-                .WhereIf(input.IsActive.HasValue, c => c.IsActive == input.IsActive.Value);
-
+                .WhereIf(input.Status.HasValue, c => c.Status == input.Status.Value);
+                
             var totalCount = await query.CountAsync();
 
             var items = await query
