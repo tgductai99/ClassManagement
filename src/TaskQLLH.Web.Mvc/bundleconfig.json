@@ -124,11 +124,11 @@
   {
     "outputFileName": "wwwroot/view-resources/Views/ClassRooms/Index.min.js",
     "inputFiles": [
-      "wwwroot/view-resources/Views/ClassRoom/Index.js"
+      "wwwroot/view-resources/Views/ClassRooms/Index.js"
     ]
   },
   {
-    "outputFileName": "wwwroot/view-resources/Views/ClassRoom/_EditModal.min.js",
+    "outputFileName": "wwwroot/view-resources/Views/ClassRooms/_EditModal.min.js",
     "inputFiles": [
       "wwwroot/view-resources/Views/ClassRooms/_EditModal.js"
     ]

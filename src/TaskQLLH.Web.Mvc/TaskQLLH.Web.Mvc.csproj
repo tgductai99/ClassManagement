@@ -45,4 +45,7 @@
     <Folder Include="wwwroot\libs\" />
     <Folder Include="wwwroot\view-resources\Views\_Bundles\" />
   </ItemGroup>
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\view-resources\Views\ClassRoom\_EditModal.min.js" />
+  </ItemGroup>
 </Project>
